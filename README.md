@@ -29,6 +29,8 @@ BadgeNumberManager.from(context).setBadgeNumber(num)
 
 For more detail,please check these articles：
 
+[简书专栏：有关Android应用桌面角标(BadgeNumber)实现的探讨](http://www.jianshu.com/p/199a9238015f)
+
 [知乎专栏：有关Android应用桌面角标(BadgeNumber)实现的探讨](https://zhuanlan.zhihu.com/p/30581346?group_id=908378436218310656)
 
 [掘金专栏：有关Android应用桌面角标(BadgeNumber)实现的探讨](https://juejin.im/post/59f2e59751882578c17ee275)
