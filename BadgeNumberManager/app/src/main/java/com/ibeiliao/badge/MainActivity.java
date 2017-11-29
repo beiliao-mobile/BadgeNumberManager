@@ -38,7 +38,15 @@ public class MainActivity extends AppCompatActivity {
                     BadgeNumberManager.from(MainActivity.this).setBadgeNumber(10);
                     Toast.makeText(MainActivity.this, "设置桌面角标成功", Toast.LENGTH_SHORT).show();
                 } else {
-                    setXiaomiBadgeNumber();
+                    btnSetBadge.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            setXiaomiBadgeNumber();
+                        }
+                    },3000);
+                    //小米手机如果在应用内直接调用设置角标的方法，设置角标会不生效,因为在退出应用的时候角标会自动消除
+                    //这里先退出应用，延迟3秒后再进行角标的设置，模拟在后台收到推送并更新角标的情景
+                    moveTaskToBack(true);
                 }
             }
         });
