@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView ivMobileBrand;
     private Button btnSetBadge;
     private Button btnClear;
+    private int mCount = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 .setTicker("ticker")
                 .setAutoCancel(true)
                 .build();
-        BadgeNumberManagerXiaoMi.setBadgeNumber(notification, 10);
+        //相邻的两次角标设置如果数字相同的话，好像下一次会不生效
+        BadgeNumberManagerXiaoMi.setBadgeNumber(notification,mCount++);
         notificationManager.notify(1000, notification);
         Toast.makeText(MainActivity.this, "设置桌面角标成功", Toast.LENGTH_SHORT).show();
 
