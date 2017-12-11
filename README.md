@@ -28,9 +28,13 @@ BadgeNumberManager.from(context).setBadgeNumber(num)
 
 1. 经过测试，目前暂时不支持的机型：华为荣耀6、OPPO A59、OPPO R9，OPPO R11、vivo X9i（截止至2017.12.11）
 
-2. 针对华为手机，在某些机型上，例如华为 mate9，在`manifest`里除了需要配置`com.huawei.android.launcher.permission.CHANGE_BADGE`权限之外，还需要配置`android.permission.INTERNET`权限才可以正常设置桌面角标（不过一般的App应该都会配置了`android.permission.INTERNET`权限）
+2. 一开始以为某些机型不支持可能是少了某些跟角标设置相关的权限，于是反编译微信、QQ、支付宝，从这些App中收集`AndroidManifest`里配置的可能跟角标设置相关的权限，并添加到Deemo中来测试，后来发现还是不行
 
-3. 关于OPPO手机，在一些较旧的机型上可以正常设置桌面角标，但在一些比较新的机型上（例如OPPO R9，OPPO R11等），只有在通知权限管理中，有“在桌面图标上显示角标”这个选项的App才可以正常设置角标。目前就只发现QQ，微信，钉钉有这个权限，就连支付宝都没有这个权限。于是尝试着写了个Demo，将Demo的包名改成了微信的包名，然后在通知权限管理中，就出现了“在桌面图标上显示图标”这个选项。所以，在新的机型上，OPPO应该是根据包名来维护了一个白名单，只针对一些比较大型的IM类型的App开放桌面角标设置的权限。所以，这个问题暂时还没有解决方法。
+3. 针对华为手机，在某些机型上，例如华为 mate9，在`manifest`里除了需要配置`com.huawei.android.launcher.permission.CHANGE_BADGE`权限之外，还需要配置`android.permission.INTERNET`权限才可以正常设置桌面角标（不过一般的App应该都会配置了`android.permission.INTERNET`权限）
+
+4. 关于OPPO手机，在一些较旧的机型上可以正常设置桌面角标，但在一些比较新的机型上（例如OPPO R9，OPPO R11等），只有在通知权限管理中，有“在桌面图标上显示角标”这个选项的App才可以正常设置角标。目前就只发现QQ，微信，钉钉有这个权限，就连支付宝都没有这个权限。于是尝试着写了个Demo，将Demo的包名改成了微信的包名，然后在通知权限管理中，就出现了“在桌面图标上显示图标”这个选项。所以，在新的机型上，OPPO应该是根据包名来维护了一个白名单，只针对一些比较大型的IM类型的App开放桌面角标设置的权限。所以，这个问题暂时还没有解决方法
+
+
 
 # 具体的实现探讨
 
