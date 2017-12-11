@@ -24,11 +24,11 @@ BadgeNumberManager.from(context).setBadgeNumber(num)
 
 ```
 
-# 填坑记录
+# 填坑记录(2017.12.11)
 
 1. 经过测试，目前暂时不支持的机型：华为荣耀6、OPPO A59、OPPO R9，OPPO R11、vivo X9i（截止至2017.12.11）
 
-2. 一开始以为某些机型不支持可能是少了某些跟角标设置相关的权限，于是反编译微信、QQ、支付宝，从这些App中收集`AndroidManifest`里配置的可能跟角标设置相关的权限，并添加到Deemo中来测试，后来发现还是不行
+2. 一开始以为某些机型不支持可能是少了某些跟角标设置相关的权限，于是反编译微信、QQ、支付宝，从这些App中收集`AndroidManifest`里配置的可能跟角标设置相关的权限，并添加到Demo中来测试，后来发现还是不行
 
 3. 针对华为手机，在某些机型上，例如华为 mate9，在`manifest`里除了需要配置`com.huawei.android.launcher.permission.CHANGE_BADGE`权限之外，还需要配置`android.permission.INTERNET`权限才可以正常设置桌面角标（不过一般的App应该都会配置了`android.permission.INTERNET`权限）
 
