@@ -5,6 +5,16 @@
     <!--华为手机更新应用桌面角标需要的权限-->
     <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
 
+    <!--有些华为机型需要增加网络权限才可以正常设置角标，例如华为 mate9-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+
+
+
+
+
+
 
     <application
         android:allowBackup="true"
